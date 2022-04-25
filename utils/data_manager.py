@@ -5,7 +5,8 @@ DATA_COLUMNS = ["Date", "Price", "Open", "High", "Low", "Volume", "Change"]
 
 class Datum():
     def __init__(self, values):
-        self.date, self.price, self.open, self.high, self.low, self.volume, self.change = values
+        self.date = values[0]
+        self.price, self.open, self.high, self.low, self.volume, self.change = values[1:].astype(np.float32)
 
     def as_row(self):
         return [self.date, self.price, self.open, self.high, self.low, self.volume, self.change]
